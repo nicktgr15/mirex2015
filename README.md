@@ -30,7 +30,7 @@ If the filelist is located under **/var/my/data/filelist.txt** and looks like th
 ```
 Then if we want to receive the classification results under the **/tmp/results** directory, the docker command would be:
 
-```docker run --rm=true nicktgr15/mirex2015 -v /var/my/data/:/var/my/data/ -v /var/my/data/fielist.txt:/tmp/filelist -v /tmp/results:/tmp/output nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-no-training```
+```docker run --rm=true nicktgr15/mirex2015 -v /var/my/data/:/var/my/data/ -v /var/my/data/filelist.txt:/tmp/filelist -v /tmp/results:/tmp/output nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-no-training```
 
 #### With Training
 
