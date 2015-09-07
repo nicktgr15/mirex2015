@@ -22,7 +22,7 @@ Use the following format:
 
 ##### Example:
 
-If the filelist is located under **/var/my/data/fielist.txt** and looks like the following:
+If the filelist is located under **/var/my/data/filelist.txt** and looks like the following:
 ```
 /var/my/data/track1.wav
 /var/my/data/track2.wav
