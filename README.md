@@ -7,7 +7,7 @@
 
 ### Available Implementations
 
-Classification  | Detection
+Classification Task  | Detection Task
 -------------  | -------------
 With Training  (CWT) | With Self-Similarity Matrix and Silence Detection (DWSSMSD)
 Without Training (CWOT)  | With Self-Similarity Matrix (DWSSM)
@@ -31,3 +31,11 @@ If the filelist is located under **/var/my/data/fielist.txt** and looks like the
 Then if we want to receive the classification results under the **/tmp/results** directory, the docker command would be:
 
 ```docker run --rm=true nicktgr15/mirex2015 -v /var/my/data/:/var/my/data/ -v /var/my/data/fielist.txt:/tmp/filelist -v /tmp/results:/tmp/output nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-no-training```
+
+#### With Training
+
+### Detection Task
+
+#### With Self-Similarity Matrix and Silence Detection
+#### With Self-Similarity Matrix
+#### Without Self-Similarity Matrix
