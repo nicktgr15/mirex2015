@@ -1,4 +1,4 @@
-# MIREX 2015: Music/Speech Classification and Detection
+## MIREX 2015: Music/Speech Classification and Detection
 
 ### Dependencies
 
