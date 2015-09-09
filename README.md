@@ -18,7 +18,7 @@ Without Training (CWOT)  | With Self-Similarity Matrix (DWSSM)
 
 Use the following format:
 
-```docker run --rm=true -v /absolute/path/to/input/dir:/absolute/path/to/input/dir -v /absolute/path/to/input/filelist:/tmp/filelist -v /absolute/path/to/results/directory:/tmp/output nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-no-training```
+```docker run --rm=true -v /absolute/path/to/input/dir:/absolute/path/to/input/dir -v /absolute/path/to/input/filelist:/absolute/path/to/input/filelist -v /absolute/path/to/results/directory:/absolute/path/to/results/directory nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /absolute/path/to/input/filelist --output-dir /absolute/path/to/results/directory```
 
 ##### Example:
 
@@ -30,7 +30,7 @@ If the filelist is located under **/var/my/data/filelist.txt** and looks like th
 ```
 Then if we want to receive the classification results under the **/tmp/results** directory, the docker command would be:
 
-```docker run --rm=true -v /var/my/data/:/var/my/data/ -v /var/my/data/filelist.txt:/tmp/filelist -v /tmp/results:/tmp/output nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-no-training```
+```docker run --rm=true -v /var/my/data/:/var/my/data/ -v /var/my/data/filelist.txt:/var/my/data/filelist.txt -v /var/my/results:/var/my/results nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /var/my/data/filelist.txt --output-dir /var/my/results```
 
 #### With Training
 
@@ -39,3 +39,6 @@ Then if we want to receive the classification results under the **/tmp/results**
 #### With Self-Similarity Matrix and Silence Detection
 #### With Self-Similarity Matrix
 #### Without Self-Similarity Matrix
+
+### Troubleshooting
+
