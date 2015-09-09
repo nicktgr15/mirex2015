@@ -93,10 +93,12 @@ The results will be available under ```/abs/path/to/results/dir``` on the host m
 In OS X there is an issue when trying to attach directories outside the /Users dir. For example attaching host's /tmp directory to the container is not possible.
 
 #### Running out of memory or out of disk space (OS X only)
-If the virtualbox VM in which the containers are executed under OS X is running out of resources then you need to remove the existing VM and create a new one with more resources. e.g.
+If the virtualbox VM in which the containers are executed under OS X is running out of resources then you need to remove the existing VM and create a new one with more resources. 
+
+*e.g.*
 ```
 docker-machine rm default
 docker-machine create --driver virtualbox default --virtualbox-disk-size 40000 --virtualbox-memory 2048
 docker-machine start default
 ```
-You may have to set the environment variables by running ```eval "$(docker-machine env default)"```
+You may have to set the environment variables for the new VM by running ```eval "$(docker-machine env default)"```
