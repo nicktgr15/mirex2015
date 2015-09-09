@@ -18,7 +18,7 @@ With Training  (CWT) | With Self-Similarity Matrix and Silence Detection (DWSSMS
 Without Training (CWOT)  | With Self-Similarity Matrix (DWSSM)
  | Without Self-Similarity Matrix (DWOSSM)
 
-**Note 1**
+**Note**
 
 The ```-v host-machine-directory-or-file:container-directory-or-file``` docker parameter used in the following commands allows to mount a directory from the host machine to the docker container in order to be able to process its contents in the container. In the same way a directory from the host machine is mounted in the container in order to be able to return the results generated in the container back to the host machine.  
 
@@ -27,7 +27,7 @@ The ```-v host-machine-directory-or-file:container-directory-or-file``` docker p
 
 Use the following format:
 
-```docker run --rm=true -v /absolute/path/to/input/dir:/absolute/path/to/input/dir -v /absolute/path/to/input/filelist:/absolute/path/to/input/filelist -v /absolute/path/to/results/directory:/absolute/path/to/results/directory nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /absolute/path/to/input/filelist --output-dir /absolute/path/to/results/directory```
+```docker run --rm -v /abs/path/to/input/dir:/abs/path/to/input/dir -v /abs/path/to/input/filelist:/abs/path/to/input/filelist -v /abs/path/to/results/dir:/abs/path/to/results/dir nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /abs/path/to/input/filelist --output-dir /abs/path/to/results/dir```
 
 ##### Example:
 
@@ -39,13 +39,13 @@ If the filelist is located under **/var/my/data/filelist.txt** and looks like th
 ```
 Then if we want to receive the classification results under the **/var/my/results** directory, the docker command would be:
 
-```docker run --rm=true -v /var/my/data/:/var/my/data/ -v /var/my/data/filelist.txt:/var/my/data/filelist.txt -v /var/my/results:/var/my/results nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /var/my/data/filelist.txt --output-dir /var/my/results```
+```docker run --rm -v /var/my/data/:/var/my/data/ -v /var/my/data/filelist.txt:/var/my/data/filelist.txt -v /var/my/results:/var/my/results nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-without-training --classification-file-list /var/my/data/filelist.txt --output-dir /var/my/results```
 
 #### With Training
 
 Use the following format:
 
-```docker run --rm=true -v /absolute/path/to/input/dir:/absolute/path/to/input/dir -v /absolute/path/to/input/training_filelist:/absolute/path/to/input/training_filelist -v /absolute/path/to/input/classification_filelist:/absolute/path/to/input/classification_filelist -v /absolute/path/to/results/directory:/absolute/path/to/results/directory nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-with-training --training-file-list /absolute/path/to/input/training_filelist --classification-file-list /absolute/path/to/input/classification_filelist --output-dir /absolute/path/to/results/directory```
+```docker run --rm -v /abs/path/to/input/dir:/abs/path/to/input/dir -v /abs/path/to/input/training_filelist:/abs/path/to/input/training_filelist -v /abs/path/to/input/classification_filelist:/abs/path/to/input/classification_filelist -v /abs/path/to/results/dir:/abs/path/to/results/dir nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py classification-with-training --training-file-list /abs/path/to/input/training_filelist --classification-file-list /abs/path/to/input/classification_filelist --output-dir /abs/path/to/results/dir```
 
 ##### Example:
 
@@ -63,13 +63,29 @@ and the classification filelist is located under **/var/my/data/classification_f
 ```
 Then if we want to receive the classification results under the **/var/my/results** directory, the docker command would be:
 
-```docker run --rm=true -v /var/my/data/:/var/my/data/ -v /var/my/data/training_filelist.txt:/var/my/data/training_filelist.txt -v /var/my/results:/var/my/results nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py -v /var/my/data/classification_filelist.txt:/var/my/data/classification_filelist.txt classification-with-training --training-file-list /var/my/data/training_filelist.txt --classification-file-list /var/my/data/classification_filelist.txt --output-dir /var/my/results```
+```docker run --rm -v /var/my/data/:/var/my/data/ -v /var/my/data/training_filelist.txt:/var/my/data/training_filelist.txt -v /var/my/results:/var/my/results nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py -v /var/my/data/classification_filelist.txt:/var/my/data/classification_filelist.txt classification-with-training --training-file-list /var/my/data/training_filelist.txt --classification-file-list /var/my/data/classification_filelist.txt --output-dir /var/my/results```
 
 ### Detection Task
 
 #### With Self-Similarity Matrix and Silence Detection
+
+Use the following format:
+
+```docker run --rm -v /abs/path/to/input/wav:/abs/path/to/input/wav -v /abs/path/to/results/dir:/abs/path/to/results/dir nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py detection-with-matrix-silence-detector --input-file /abs/path/to/input/wav --output-dir /abs/path/to/results/dir```
+
+The results will be available under ```/abs/path/to/results/dir``` on the host machine.
+
 #### With Self-Similarity Matrix
+
+```docker run --rm -v /abs/path/to/input/wav:/abs/path/to/input/wav -v /abs/path/to/results/dir:/abs/path/to/results/dir nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py detection-with-matrix-no-silence-detector --input-file /abs/path/to/input/wav --output-dir /abs/path/to/results/dir```
+
+The results will be available under ```/abs/path/to/results/dir``` on the host machine.
+
 #### Without Self-Similarity Matrix
+
+```docker run --rm -v /abs/path/to/input/wav:/abs/path/to/input/wav -v /abs/path/to/results/dir:/abs/path/to/results/dir nicktgr15/mirex2015 python /opt/mirex2015/mirex2015.py detection-without-matrix --input-file /abs/path/to/input/wav --output-dir /abs/path/to/results/dir```
+
+The results will be available under ```/abs/path/to/results/dir``` on the host machine.
 
 ### Troubleshooting
 
