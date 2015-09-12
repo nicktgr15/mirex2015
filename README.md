@@ -14,9 +14,9 @@
 
 Classification Task  | Detection Task
 -------------  | -------------
-With Training  (CWT) | With Self-Similarity Matrix and Silence Detection (DWSSMSD)
-Without Training (CWOT)  | With Self-Similarity Matrix (DWSSM)
- | Without Self-Similarity Matrix (DWOSSM)
+With Training  (NT1) | With Self-Similarity Matrix and Silence Detection (TVDP1)
+Without Training (NT2)  | With Self-Similarity Matrix (TVDP2)
+ | Without Self-Similarity Matrix (TVDP3)
 
 **Note**
 
