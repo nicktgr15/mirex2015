@@ -98,7 +98,8 @@ If the virtualbox VM in which the containers are executed under OS X is running 
 *e.g.*
 ```
 docker-machine rm default
-docker-machine create --driver virtualbox default --virtualbox-disk-size 40000 --virtualbox-memory 2048
+docker-machine create --virtualbox-disk-size 40000 -virtualbox-memory 2048 -d virtualbox default
+docker-machine ls
 docker-machine start default
 ```
 You may have to set the environment variables for the new VM by running ```eval "$(docker-machine env default)"```
