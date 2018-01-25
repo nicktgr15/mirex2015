@@ -16,7 +16,7 @@ Classification Task  | Detection Task
 -------------  | -------------
 With Training  (NT1) | With Self-Similarity Matrix and Silence Detection (TVDP1)
 Without Training (NT2)  | With Self-Similarity Matrix (TVDP2)
- | Without Self-Similarity Matrix (TVDP3)
+| | Without Self-Similarity Matrix (TVDP3)
 
 **Note**
 
